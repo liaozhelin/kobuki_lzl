@@ -1,4 +1,4 @@
-/*****************************************************************************
+﻿/*****************************************************************************
 *                                                                            *
 *  OpenNI 2.x Alpha                                                          *
 *  Copyright (C) 2012 PrimeSense Ltd.                                        *
@@ -399,6 +399,8 @@ public:
 	const char* getVendor() const { return vendor; }
 	/** Returns the device name for this device. */
 	const char* getName() const { return name; }
+	/** Returns the device serialNumber for this device. */
+	const char* getSerialNumber() const { return serialNumber; }
 	/** Returns the USB VID code for this device. */
 	uint16_t getUsbVendorId() const { return usbVendorId; }
 	/** Returns the USB PID code for this device. */
@@ -2145,7 +2147,7 @@ public:
 	{
 		return (Status)oniInitialize(ONI_API_VERSION); // provide version of API, to make sure proper struct sizes are used
 	}
-
+	
 	/**
 	Stop using the library. Unload all drivers, close all streams and devices.
 	Once @ref shutdown was called, no other calls to OpenNI is allowed.
@@ -2392,6 +2394,13 @@ public:
 	{
 		return (Status)oniSetLogAndroidOutput(bAndroidOutput);
 	}
+
+
+	static Status setLogAndroidOutputRedirect(bool bAndroidOutput)
+	{
+		return (Status)oniSetLogAndroidOutputRedirect(bAndroidOutput);
+	}
+
 	#endif
 	
 private:
