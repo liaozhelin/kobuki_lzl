@@ -110,4 +110,7 @@
             <remap from="/$(arg camera_name)/depth/color/points" to="/$(arg camera_name)/depth_registered/points"/>
         </node>
     </group>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_2_base_footprint" 
+      args="0.3 0.0 0.34 0 0 0 /base_footprint /camera_link" output="screen" />
 </launch>

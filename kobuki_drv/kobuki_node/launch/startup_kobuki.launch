@@ -1,11 +1,13 @@
 <!-- Kobuki地盘odom/电机/激光雷达/RGBD启动节点 -->
 <launch>
     <master auto="start"/>
-    
     <!-- 启动底盘，可以听到和弦声音 -->
-    <include file="$(find kobuki_node)/launch/minimal.launch"/>
+    <include file="/home/ubuntu/kobuki_ws/src/kobuki_lzl/kobuki_drv/kobuki_node/launch/minimal.launch"/>
     <!-- 启动激光雷达 -->
-    <include file="$(find rplidar_ros)/launch/rplidar_a1.launch"/>
+    <include file="/home/ubuntu/kobuki_ws/src/kobuki_lzl/r2000_drv/pepperl_fuchs/pepperl_fuchs_r2000/launch/r2000.launch"/>
     <!-- 启动RGB-D -->
-    <include file="$(find astra_camera)/launch/astrapro.launch"/>
+    <include file="/home/ubuntu/kobuki_ws/src/kobuki_lzl/astra_drv/ros_astra_camera/launch/astra_pro.launch"/>
+    <!-- 启动手柄 -->
+    <include file="/home/ubuntu/kobuki_ws/src/kobuki_lzl/turtlebot/turtlebot_teleop/launch/joy.launch"/>
+    
 </launch>
